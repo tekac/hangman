@@ -114,14 +114,16 @@ document.getElementById("reset").addEventListener("click", function () {
 // Generate Alphabet Buttons
 
 const btns = function () {
-  myAlphabet = document.getElementsByClassName("alphabet");
-  letters = document.createElement("ul");
+  let myAlphabet = document.getElementById("alpha-btn");
+  let letters = document.createElement("ul");
 
   for (let i = 0; i < alphabet.length; i++) {
     letters.id = "alphabet";
-    list = document.createElement("li");
+    let list = document.createElement("li");
     list.id = "letter";
     list.innerHTML = alphabet[i];
+    myAlphabet.appendChild(letters);
+    letters.appendChild(list);
   }
 };
 

@@ -50,3 +50,23 @@ button {
 canvas {
   text-align: center;
 }
+
+#alphabet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#alphabet li {
+  list-style: none;
+  border: 1px solid black;
+  margin: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+#alphabet li:hover {
+  background-color: blue;
+}
+
+/**** MEDIA QUERIES ****/
