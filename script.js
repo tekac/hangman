@@ -4,6 +4,18 @@ const canvas = document.getElementById("hangman");
 const context = canvas.getContext("2d");
 const alpha = Array.from(Array(26)).map((e, i) => i + 65);
 const alphabet = alpha.map((x) => String.fromCharCode(x));
+const url = "https://random-word-api.herokuapp.com/word?number=10";
+
+// Fetch Word API
+
+async function getWords() {
+  let response = await fetch(url);
+  let words = await response.json();
+  for (i = 0; i < words.length; i++) {
+    console.log(words[i]);
+  }
+}
+getWords();
 
 Draw = (part) => {
   switch (part) {

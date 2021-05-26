@@ -51,10 +51,17 @@ canvas {
   text-align: center;
 }
 
+.guess {
+  height: 20vh;
+}
+
 #alphabet {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  width: 35%;
+  margin: 0 auto;
 }
 
 #alphabet li {
@@ -66,7 +73,8 @@ canvas {
 }
 
 #alphabet li:hover {
-  background-color: blue;
+  background-color: #4b4e53;
+  opacity: 55%;
 }
 
 /**** MEDIA QUERIES ****/
