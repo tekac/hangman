@@ -5,13 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman Game</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>Hangman</h1>
-    </header>
+    <div class="intro">
+      <header>
+        <h1>Hangman</h1>
+        <p>Click any letter!</p>
+      </header>
+    </div>
+    <div id="container">
+      <canvas id="hangman" width="180" height="250"></canvas>
+    </div>
+    <div class="guess"></div>
     <div class="alphabet"></div>
+    <div class="buttons">
+      <button id="next">Next</button>
+      <button id="reset">Reset</button>
+    </div>
     <script src="./script.js"></script>
+    <div class="word_guess"></div>
   </body>
 </html>

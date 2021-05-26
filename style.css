@@ -3,3 +3,50 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+  background-color: #e8eef1;
+}
+
+.intro {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro h1 {
+  font-size: 5.5rem;
+  font-family: "Architects Daughter", cursive;
+  margin: 5% 0 2% 0;
+  letter-spacing: 0.3rem;
+}
+
+.intro p {
+  font-family: "Indie Flower", cursive;
+  font-size: 2rem;
+  margin: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3% auto;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+canvas {
+  text-align: center;
+}

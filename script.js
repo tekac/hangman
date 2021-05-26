@@ -1,25 +1,12 @@
+// Variables
+
 const canvas = document.getElementById("hangman");
 const context = canvas.getContext("2d");
-
-clearCanvas = () => {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-};
+const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+const alphabet = alpha.map((x) => String.fromCharCode(x));
 
 Draw = (part) => {
   switch (part) {
-    case "gallows":
-      context.strokeStyle = "#444";
-      context.lineWidth = 10;
-      context.beginPath();
-      context.moveTo(175, 225);
-      context.lineTo(5, 225);
-      context.moveTo(40, 225);
-      context.lineTo(25, 5);
-      context.lineTo(100, 5);
-      context.lineTo(100, 25);
-      context.stroke();
-      break;
-
     case "head":
       context.lineWidth = 5;
       context.beginPath();
@@ -80,7 +67,6 @@ Draw = (part) => {
 };
 
 const draws = [
-  "gallows",
   "head",
   "body",
   "rightHarm",
@@ -94,13 +80,49 @@ let step = 0;
 
 const next = document.getElementById("next");
 
+window.onload = function () {
+  function draw() {
+    context.strokeStyle = "#4B4E53";
+    context.lineWidth = 10;
+    context.beginPath();
+    context.moveTo(175, 225);
+    context.lineTo(5, 225);
+    context.moveTo(40, 225);
+    context.lineTo(25, 5);
+    context.lineTo(100, 5);
+    context.lineTo(100, 25);
+    context.stroke();
+  }
+  draw();
+};
+
 next.addEventListener("click", function () {
   Draw(draws[step++]);
   if (undefined === draws[step]) this.disabled = true;
 });
+
+clearCanvas = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+};
 
 document.getElementById("reset").addEventListener("click", function () {
   clearCanvas();
   step = 0;
   next.disabled = false;
 });
+
+// Generate Alphabet Buttons
+
+const btns = function () {
+  myAlphabet = document.getElementsByClassName("alphabet");
+  letters = document.createElement("ul");
+
+  for (let i = 0; i < alphabet.length; i++) {
+    letters.id = "alphabet";
+    list = document.createElement("li");
+    list.id = "letter";
+    list.innerHTML = alphabet[i];
+  }
+};
+
+btns();
