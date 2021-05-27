@@ -5,17 +5,45 @@ const context = canvas.getContext("2d");
 const alpha = Array.from(Array(26)).map((e, i) => i + 65);
 const alphabet = alpha.map((x) => String.fromCharCode(x));
 const url = "https://random-word-api.herokuapp.com/word?number=10";
+let guesses = [];
 
-// Fetch Word API
+// Fetch Word API && Guess Logic
 
 async function getWords() {
   let response = await fetch(url);
   let words = await response.json();
+
+  let wordHolder = document.getElementById("hold");
+  let correct = document.createElement("ul");
+
   for (i = 0; i < words.length; i++) {
-    console.log(words[i]);
+    correct.setAttribute("id", "my-word");
+    guess = document.createElement("li");
+    guess.setAttribute("class", "guess");
+    guess.innerHTML = "_";
+
+    guesses.push(guess);
+    wordHolder.appendChild(correct); // appends the correct container holding guesses to the DIV
+    correct.appendChild(guess); // appends our "guesses" to the correct UL
   }
 }
 getWords();
+
+// Generate Alphabet Buttons
+
+const btns = function () {
+  let myAlphabet = document.getElementById("alpha-btn");
+  let letters = document.createElement("ul");
+
+  for (let i = 0; i < alphabet.length; i++) {
+    letters.id = "alphabet";
+    let list = document.createElement("li");
+    list.id = "letter";
+    list.innerHTML = alphabet[i];
+    myAlphabet.appendChild(letters);
+    letters.appendChild(list);
+  }
+};
 
 Draw = (part) => {
   switch (part) {
@@ -122,21 +150,5 @@ document.getElementById("reset").addEventListener("click", function () {
   step = 0;
   next.disabled = false;
 });
-
-// Generate Alphabet Buttons
-
-const btns = function () {
-  let myAlphabet = document.getElementById("alpha-btn");
-  let letters = document.createElement("ul");
-
-  for (let i = 0; i < alphabet.length; i++) {
-    letters.id = "alphabet";
-    let list = document.createElement("li");
-    list.id = "letter";
-    list.innerHTML = alphabet[i];
-    myAlphabet.appendChild(letters);
-    letters.appendChild(list);
-  }
-};
 
 btns();
