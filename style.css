@@ -85,7 +85,9 @@ canvas {
   font-size: 2.5rem;
   list-style: none;
   margin: 1rem;
+  padding: 0.2rem;
   display: inline-block;
+  font-family: "Indie Flower", cursive;
 }
 
 /**** MEDIA QUERIES ****/

@@ -20,7 +20,7 @@ async function getWords() {
     correct.setAttribute("id", "my-word");
     guess = document.createElement("li");
     guess.setAttribute("class", "guess");
-    guess.innerHTML = "_";
+    guess.innerHTML = "a".toUpperCase();
 
     guesses.push(guess);
     wordHolder.appendChild(correct); // appends the correct container holding guesses to the DIV
